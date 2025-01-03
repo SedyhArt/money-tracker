@@ -13,8 +13,9 @@ export const addExpenseCommand = async (msg: Message, match: RegExpExecArray | n
     const [category, amount] = match.slice(1);
 
     try {
-        const userId = await findOrCreateUser(chatId)
-        await addExpense(chatId.toString(), category, parseFloat(amount));
+        const userId = await findOrCreateUser(chatId);
+        // @ts-ignore
+        await addExpense(userId.toString(), category.toLowerCase(), parseFloat(amount));
         bot.sendMessage(chatId, `Расход в категории "${category}" на сумму ${amount} добавлен!`);
     } catch (error) {
         bot.sendMessage(chatId, `Ошибка при добавлении расхода: ${(error as Error).message}`);
