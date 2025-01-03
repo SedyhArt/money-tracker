@@ -15,7 +15,7 @@ export const viewDetailedExpensesCommand = async (msg: Message, showIds?: boolea
             bot.sendMessage(chatId, "Нет записей о расходах.");
         } else {
             const response = expenses
-                .map(e => `${e.category}: ${e.amount} руб. (${new Date(e.date).toLocaleDateString()} ${showIds ? `| ID: ${(e._id as ObjectId).toString()}` : ""})`)
+                .map(e => `${e.category.toUpperCase()}: ${e.amount} руб. (${new Date(e.date).toLocaleDateString()} ${showIds ? `| ID: ${(e._id as ObjectId).toString()}` : ""})`)
                 .join('\n');
             bot.sendMessage(chatId, `Ваши расходы:\n${response}`);
         }
