@@ -33,3 +33,6 @@ next-env.d.ts
 .sentryclirc
 
 .npmrc
+/.idea/vcs.xml
+/.idea/untitled.iml
+/.idea/modules.xml
