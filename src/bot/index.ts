@@ -15,7 +15,7 @@ bot.on('message', (message) => {
 bot.onText(/\/start/, startCommand);
 bot.onText(/\/add (\S+) (\d+)/, addExpenseCommand);
 bot.onText(/\/view/, viewExpensesCommand);
-bot.onText(/\/detailed /, (msg) => viewDetailedExpensesCommand(msg));
+bot.onText(/^\/detailed$/, (msg) => viewDetailedExpensesCommand(msg));
 bot.onText(/\/detailedWithId/, (msg) => viewDetailedExpensesCommand(msg, true));
 bot.onText(/\/delete (.+)/, deleteExpenseCommand);
 
